@@ -1,41 +1,53 @@
-:root{
+:root {
     --main-color: #6135e1;
-    --weak-main-color:#c7b6f9;
+    --weak-main-color: #c7b6f9;
     --white-font: white;
+    --cancel-color: #ED0800;
+    --aprove-color: #33b249;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-.title-box{
+.title-box {
     padding: 10px;
     background-color: #6260B5;
     color: var(--white-font);
 }
 
-.main-content{
+.main-content {
     display: flex;
 
 }
 
 /* SIDE-BAR */
 
-.side-bar{
+.side-bar {
     padding: 20px;
 }
 
-.side-bar-titles{
+.side-bar-titles {
     margin-top: 0;
     margin-bottom: 10px;
     padding-bottom: 5px;
     border-bottom: solid 2px #374958;
 }
 
-.list-element{
+.box-list-item {
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    height: 27px;
+    width: 27px;
+}
+
+.list-element {
     border: solid 2px transparent;
     margin: 3px 0;
     padding: 5px;
@@ -44,17 +56,17 @@
     transition: 200ms;
 }
 
-.list-element:hover{
+.list-element:hover {
     font-weight: bold;
     color: #14222e;
 }
 
-.select{
+.select {
     font-weight: bold;
     color: #14222e;
 }
 
-.add-project{
+.add-project {
     font-size: 16px;
     margin: 3px 0;
     padding: 5px;
@@ -64,18 +76,124 @@
 
 /* END SIDE-BAR */
 
-.content{
+/*START CONTENT */
+
+.content {
     display: flex;
     flex: 1;
     flex-direction: column;
     padding: 30px 50px;
 }
 
-.title-content{
+.title-content {
     background-color: var(--main-color);
     padding: 20px;
     font-size: 2.3rem;
     color: #f7f5f5;
     border-radius: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
+
+.no-task {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.todo-card {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.todo-card:hover{
+    border: 1px solid black;
+}
+
+.checkbox-round {
+    margin-right: 8px;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 3px solid black;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox-round:checked {
+    background-color: var(--main-color);
+}
+
+.todo-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.date {
+    padding: 3px 6px;
+    ;
+}
+
+.edit-delete-box {
+    padding: 5px;
+}
+
+#delete:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(36%) sepia(77%) saturate(6832%) hue-rotate(349deg) brightness(108%) contrast(103%);
+}
+
+#edit:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(5247%) hue-rotate(232deg) brightness(96%) contrast(98%);
+}
+
+/* END CONTENT */
+
+/* START FORM */
+
+.form-add-todo{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+.form-add-todo input{
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.box-btn-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.box-btn-form button{
+    color: var(--white-font);
+    border: none;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.box-btn-form button:hover{
+    opacity: 0.8;
+}
+
+.btn-confirm{
+    background-color: var(--aprove-color);
+}
+
+.btn-cancel{
+    background-color: var(--cancel-color);
+}
+
+/* END FORM */

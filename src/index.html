@@ -26,19 +26,37 @@
                 <h2 class="side-bar-titles">Home</h2>
 
                 <ul>
-                    <li class="list-element select">Geral</li>
-                    <li class="list-element">Hoje</li>
-                    <li class="list-element">Próxima Semana</li>
-                    <li class="list-element">Importante</li>
+                    <div class="box-list-item">
+                        <img class="icons" src="./assets/home.svg">
+                        <li class="list-element select">Geral</li>
+                    </div>
+
+                    <div class="box-list-item">
+                        <img class="icons" src="./assets/calendar_today.svg">
+                        <li class="list-element">Hoje</li>
+                    </div>
+
+                    <div class="box-list-item">
+                        <img class="icons" src="./assets/calendar_month.svg">
+                        <li class="list-element">Próxima Semana</li>
+                    </div>
+
+                    <div class="box-list-item">
+                        <img class="icons" src="./assets/priority_high.svg">
+                        <li class="list-element">Importante</li>
+                    </div>
+
                 </ul>
-                
 
             </div>
 
             <div class="projects">
                 <h2 class="side-bar-titles">Projetos</h2>
 
-                <button id="add-project" class="add-project">Adicionar Projeto</button>
+                <div class="box-list-item">
+                    <img class="icons" src="./assets/add_circle.svg">
+                    <li id="add-project" class="list-element">Adicionar Projeto</li>
+                </div>
             </div>
 
         </nav>
@@ -46,9 +64,42 @@
         <div class="content">
             <h2 class="title-content">Todas de Tarefas</h2>
 
-            <div class="list-todo"></div>
-        </div>
+            <div class="list-todo">
+                <div class="no-task">Sem tarefas a fazer</div>
 
+                <div class="todo-card">
+                    <input type="checkbox" class="checkbox-round">
+
+                    <div class="todo-details">
+                        <div class="todo-title">Estudar Algo</div>
+                        <small class="todo-description">Fazer o curso de alura</small>
+                    </div>
+                    <div class="date">23/11/2024</div>
+                    <div class="edit-delete-box">
+                        <img id="edit" src="./assets/edit.svg">
+                        <img id="delete" src="./assets/delete.svg">
+                    </div>
+                </div>
+            </div>
+
+            <form class="form-add-todo">
+
+                <label for="title">Titúlo:</label>
+                <input type="text" id="title" placeholder="O que fazer?">
+    
+                <label for="description">Descrição(opcional):</label>
+                <input type="text" id="descri">
+    
+                <label for="date">Data:</label>
+                <input type="date" id="date">
+    
+                <div class="box-btn-form">
+                    <button class="btn-confirm">Adicionar</button>
+                    <button class="btn-cancel">Cancelar</button>
+                </div>
+    
+            </form>
+        </div>
 
     </main>
 
