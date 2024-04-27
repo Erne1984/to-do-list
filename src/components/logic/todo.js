@@ -2,15 +2,13 @@ const projects = [
     new ToDo("Estudar Inglês", "Praticar no curso de inglês", "2024-06-23", "high"),
     new ToDo("Exercício Físico", "Ir para a academia", "2024-05-23", "medium"),
     new ToDo("Programar", "Fazer o curso da alura", "2024-08-23", "low"),
-]
-
-// const objectTeste = {title: "Estudar", description: "João", dueDate: "João", priority: "João"}
+];
 
 function ToDo(title, description, dueDate, priority) {
-    this.title = title
-    this.description = description
-    this.dueDate = dueDate
-    this.priority = priority
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
 }
 
 function addToDo(newToDo) {
@@ -82,9 +80,4 @@ function updateToDo(searchName, newTitle, newDescription, newDueDate, newPriorit
     }
 }
 
-/*function updateToDo(searchName, title, description, dueDate, priority){
-    projects.find((project) => {
-        return project.name
-    })
-}*/
-
+export {addToDo, readToDo, updateToDo, deleteToDo}
