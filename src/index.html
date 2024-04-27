@@ -14,9 +14,9 @@
 
 <body>
 
-    <div class="title-box">
+    <header class="title-box">
         <h1>Lista de Tarefas</h1>
-    </div>
+    </header>
 
     <main class="main-content">
 
@@ -26,19 +26,28 @@
                 <h2 class="side-bar-titles">Home</h2>
 
                 <ul>
-                    <li class="list-element">General</li>
+                    <li class="list-element select">Geral</li>
+                    <li class="list-element">Hoje</li>
+                    <li class="list-element">Próxima Semana</li>
+                    <li class="list-element">Importante</li>
                 </ul>
                 
 
             </div>
 
             <div class="projects">
-                <h2>Projects</h2>
+                <h2 class="side-bar-titles">Projetos</h2>
+
+                <button id="add-project" class="add-project">Adicionar Projeto</button>
             </div>
 
         </nav>
 
-        <div class="content"></div>
+        <div class="content">
+            <h2 class="title-content">Todas de Tarefas</h2>
+
+            <div class="list-todo"></div>
+        </div>
 
 
     </main>
