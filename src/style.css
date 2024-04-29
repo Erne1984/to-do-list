@@ -44,6 +44,12 @@
 .box-list-item {
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.box-list-item:hover{
+    font-weight: bold;
+    color: #14222e;
 }
 
 .icons {
@@ -58,11 +64,6 @@
     list-style: none;
     cursor: pointer;
     transition: 200ms;
-}
-
-.list-element:hover {
-    font-weight: bold;
-    color: #14222e;
 }
 
 .select {
