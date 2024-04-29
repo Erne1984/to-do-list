@@ -57,6 +57,18 @@
                     <img class="icons" src="./assets/add_circle.svg">
                     <li id="add-project" class="list-element">Adicionar Projeto</li>
                 </div>
+
+                <form class="add-project-box none">
+                    <img class="icons" src="./assets/reorder.svg">
+                    <div class="input-project">
+                        <input type="text" placeholder="Entre o novo projeto">
+
+                        <div class="box-btn-form">
+                            <button class="btn-confirm">Adicionar</button>
+                            <button class="btn-cancel">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
         </nav>
@@ -64,10 +76,10 @@
         <div class="content">
             <h2 class="title-content">Todas de Tarefas</h2>
 
-            <div class="list-todo">
-                <div class="no-task">Sem tarefas a fazer</div>
+            <div class="list-todo" id="list-todo-content">
+                <div class="no-task none">Sem tarefas a fazer</div>
 
-                <div class="todo-card">
+                <!--div class="todo-card">
                     <input type="checkbox" class="checkbox-round">
 
                     <div class="todo-details">
@@ -79,25 +91,26 @@
                         <img id="edit" src="./assets/edit.svg">
                         <img id="delete" src="./assets/delete.svg">
                     </div>
-                </div>
+                </div-->
+
             </div>
 
-            <form class="form-add-todo">
+            <form class="form-add-todo none">
 
                 <label for="title">Titúlo:</label>
                 <input type="text" id="title" placeholder="O que fazer?">
-    
+
                 <label for="description">Descrição(opcional):</label>
                 <input type="text" id="descri">
-    
+
                 <label for="date">Data:</label>
                 <input type="date" id="date">
-    
+
                 <div class="box-btn-form">
                     <button class="btn-confirm">Adicionar</button>
                     <button class="btn-cancel">Cancelar</button>
                 </div>
-    
+
             </form>
         </div>
 

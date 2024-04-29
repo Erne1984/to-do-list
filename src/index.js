@@ -1,5 +1,6 @@
 import { ToDo } from './components/logic/todo';
-import updateToDo from './components/logic/update'
+import createTodoCard from './components/views/todoCard'; 
+
 import './style.css'
 
 const projects = [
@@ -8,10 +9,17 @@ const projects = [
     new ToDo("Programar", "Fazer o curso da alura", "2024-08-23", "low"),
 ];
 
-console.log("antes");
-console.log(JSON.parse(JSON.stringify(projects))); 
+// DOM STUFF
+const listContent = document.querySelector("#list-todo-content");
 
-updateToDo(projects, "Programar", "fds", "fdsa", "fdsa", "fsda");
+const todoCardDom = document.querySelector('.todo-card');
+const noTaskMsg = document.querySelector('.no-task');
 
-console.log("depois");
-console.log(projects);
+
+const todoCard1 = createTodoCard("Estudar Algo", "Fazer o curso de alura", "23/11/2024");
+
+listContent.innerHTML += todoCard1
+
+if(todoCardDom == null){ 
+    noTaskMsg.classList.toggle('none');
+}
