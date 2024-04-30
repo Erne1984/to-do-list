@@ -1,7 +1,7 @@
 import { ToDo } from './components/logic/todoObject';
 import createTodoCard from './components/views/todoCard';
 import { initAddProject } from './components/views/addProject';
-import { initSidebar } from './components/views/sidebar'; // Importe a função initSidebar
+import { initSidebar } from './components/views/sidebar';  
 
 import './style.css'
 

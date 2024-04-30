@@ -13,6 +13,7 @@ export function initSidebar() {
         listItem.addEventListener("click", () => {
             if (!listItem.classList.contains('select')) {
                 listItemsLeft.forEach((item) => item.classList.remove("select"));
+                document.querySelectorAll(".project").forEach((item) => item.classList.remove("select"));
                 listItem.classList.add("select");
                 currentItem = listItem.querySelector(".list-element");
                 titleTodo.textContent = sideBarItens[currentItem.textContent];
