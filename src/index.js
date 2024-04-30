@@ -1,5 +1,6 @@
-import { ToDo } from './components/logic/todo';
-import createTodoCard from './components/views/todoCard'; 
+import { ToDo } from './components/logic/todoObject';
+import createTodoCard from './components/views/todoCard';
+import { initAddProject } from './components/views/addProject';
 
 import './style.css'
 
@@ -22,7 +23,7 @@ const todoCard1 = createTodoCard("Estudar Algo", "Fazer o curso de alura", "23/1
 
 todoListContent.innerHTML += todoCard1
 
-if(todoCardDom == null){ 
+if (todoCardDom == null) {
     noTaskMsg.classList.toggle('none');
 }
 
@@ -35,7 +36,7 @@ listItemsLeft.forEach((listItem) => {
     };
     let currentItem = "";
     listItem.addEventListener("click", () => {
-        if(!listItem.classList.contains('select')){
+        if (!listItem.classList.contains('select')) {
             listItemsLeft.forEach((item) => item.classList.remove("select"));
             listItem.classList.add("select");
             currentItem = listItem.querySelector(".list-element");
@@ -43,3 +44,5 @@ listItemsLeft.forEach((listItem) => {
         }
     })
 })
+
+initAddProject();

@@ -13,7 +13,7 @@ function createTodoCard(title, description, date) {
             <div id="delete"> </div>
         </div>
     </div>
-    `;
+    `
 }
 
 export default createTodoCard;

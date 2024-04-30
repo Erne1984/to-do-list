@@ -71,6 +71,11 @@
     color: #14222e;
 }
 
+.projects{
+    display: flex;
+    flex-direction: column;
+}
+
 .add-project {
     font-size: 16px;
     margin: 3px 0;
@@ -218,4 +223,15 @@
     background: url(./assets/delete.svg);
     height: 24px;
     width: 24px;
+}
+
+.box-list-item-project{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box-list-item-project:hover{
+    font-weight: bold;
+    color: #14222e;
 }

@@ -53,19 +53,19 @@
             <div class="projects">
                 <h2 class="side-bar-titles">Projetos</h2>
 
-                <div class="box-list-item">
+                <div class="box-list-item-project" id="add-project">
                     <img class="icons" src="./assets/add_circle.svg">
-                    <li id="add-project" class="list-element">Adicionar Projeto</li>
+                    <li class="list-element">Adicionar Projeto</li>
                 </div>
 
                 <form class="add-project-box none">
                     <img class="icons" src="./assets/reorder.svg">
                     <div class="input-project">
-                        <input type="text" placeholder="Entre o novo projeto">
+                        <input type="text" placeholder="Entre o novo projeto" id="input-project">
 
                         <div class="box-btn-form">
-                            <button class="btn-confirm">Adicionar</button>
-                            <button class="btn-cancel">Cancelar</button>
+                            <button type="button" id="btn-confirm-add-project" class="btn-confirm">Adicionar</button>
+                            <button type="button" id="btn-confirm-cancel-project" class="btn-cancel">Cancelar</button>
                         </div>
                     </div>
                 </form>
