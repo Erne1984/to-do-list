@@ -1,5 +1,6 @@
 import Project from "../logic/projectObject";
 import ToDo from "../logic/todoObject";
+import projectItem from "./projectItem";
 
 export function initAddProject() {
     const projectContainer = document.querySelector(".projects");
@@ -18,8 +19,9 @@ export function initAddProject() {
         if (inputNameProject.value == "") {
             alert("Nome do projeto não pode ser vazio");
         } else {
-            const newProject = document.createElement("div");
-            newProject.textContent = inputNameProject.value;
+            const projectHTML = projectItem(inputNameProject.value);  
+            const newProject = document.createElement("div");  
+            newProject.innerHTML = projectHTML; 
             projectContainer.appendChild(newProject);
             addProjectForm.classList.add("none");
             inputNameProject.value = "";
