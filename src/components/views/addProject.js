@@ -1,3 +1,6 @@
+import Project from "../logic/projectObject";
+import ToDo from "../logic/todoObject";
+
 export function initAddProject() {
     const projectContainer = document.querySelector(".projects");
     const addProjectForm = document.querySelector(".add-project-box");
