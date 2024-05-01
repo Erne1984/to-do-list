@@ -1,3 +1,6 @@
+import { initTodoContent } from "./todoContentDom";
+import manageProjects from "./manageProjects";
+
 function projectItem(name) {
     const projectElement = document.createElement('div');
     projectElement.classList.add('box-list-item');
@@ -15,6 +18,7 @@ function projectItem(name) {
             projectElement.classList.add('select');
             const titleTodo = document.querySelector('.title-content');
             titleTodo.textContent = name;
+            manageProjects()
         }
     });
 

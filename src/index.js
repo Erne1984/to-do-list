@@ -7,4 +7,4 @@ import './style.css'
 initSidebar();  
 initAddProject();
 
-initTodoContent()
+initTodoContent();
