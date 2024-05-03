@@ -17,6 +17,7 @@ function projectItem(name) {
             projectElement.classList.add('select');
             const titleTodo = document.querySelector('.title-content');
             titleTodo.textContent = name;
+            initTodoContent();
         }
     });
 

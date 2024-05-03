@@ -1,3 +1,5 @@
+import { initTodoContent } from "./todoContentDom";
+
 export function initSidebar() {
     const listItemsLeft = document.querySelectorAll(".box-list-item");
     const titleTodo = document.querySelector(".title-content");
@@ -17,6 +19,7 @@ export function initSidebar() {
                 listItem.classList.add("select");
                 currentItem = listItem.querySelector(".list-element");
                 titleTodo.textContent = sideBarItens[currentItem.textContent];
+                initTodoContent();
             }
         })
     });
