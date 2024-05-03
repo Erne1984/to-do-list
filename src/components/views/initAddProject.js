@@ -1,8 +1,8 @@
 import Project from "../logic/projectObject";
 import projectItem from "./projectItem";
-import projectsArray from "./projectsArray";
+import projectsArray from"./projectsArray";
 
-let initialProjects = projectsArray();
+let projects = projectsArray();
 
 export function initAddProject() {
     const projectContainer = document.querySelector(".projects");
@@ -11,11 +11,11 @@ export function initAddProject() {
     const btnCancelAddProject = document.querySelector("#btn-confirm-cancel-project");
     const btnConfirmAddProject = document.querySelector("#btn-confirm-add-project");
 
-    if(initialProjects.length != 0){
-        initialProjects.forEach((project) =>{
+    if (projects.length != 0) {
+        projects.forEach((project) =>{
             const projectHTML = projectItem(project.nome);
             projectContainer.appendChild(projectHTML);
-        })
+        });
     }
 
     addProjectBtn.addEventListener("click", () => {
@@ -33,6 +33,10 @@ export function initAddProject() {
         if (inputNameProject.value.trim() === "") {
             alert("Nome do projeto não pode ser vazio");
         } else {
+            const newProject = new Project(inputNameProject.value);
+            projects.push(newProject); 
+            console.log("Novo projeto adicionado:", newProject); 
+            console.log("Array de projetos atualizado:", projects);  
             const projectHTML = projectItem(inputNameProject.value);
             projectContainer.appendChild(projectHTML);
             const addProjectForm = document.querySelector(".add-project-box");
