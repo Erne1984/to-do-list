@@ -7,7 +7,8 @@ import { ToDo } from './components/logic/todoObject';
 
 let arrayProjects = projectsArray()
 
-initSidebar();  
+initSidebar();
+
 initAddProject();
 
-initTodoContent()
+initTodoContent();

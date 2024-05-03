@@ -1,4 +1,5 @@
 import { initTodoContent } from "./todoContentDom";
+import { formAddTodo } from "./formAddTodo";
 
 export function initSidebar() {
     const listItemsLeft = document.querySelectorAll(".box-list-item");
@@ -20,6 +21,7 @@ export function initSidebar() {
                 currentItem = listItem.querySelector(".list-element");
                 titleTodo.textContent = sideBarItens[currentItem.textContent];
                 initTodoContent();
+                formAddTodo();
             }
         })
     });

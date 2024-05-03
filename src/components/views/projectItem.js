@@ -1,4 +1,5 @@
 import { initTodoContent } from "./todoContentDom";
+import { formAddTodo } from "./formAddTodo";
 
 function projectItem(name) {
     const projectElement = document.createElement('div');
@@ -18,6 +19,7 @@ function projectItem(name) {
             const titleTodo = document.querySelector('.title-content');
             titleTodo.textContent = name;
             initTodoContent();
+            formAddTodo();
         }
     });
 

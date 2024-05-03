@@ -80,23 +80,33 @@
 
             </div>
 
-            <form class="form-add-todo none">
+            <div class="container-form-add-todo">
 
-                <label for="title">Titúlo:</label>
-                <input type="text" id="title" placeholder="O que fazer?">
-
-                <label for="description">Descrição(opcional):</label>
-                <input type="text" id="descri">
-
-                <label for="date">Data:</label>
-                <input type="date" id="date">
-
-                <div class="box-btn-form">
-                    <button class="btn-confirm">Adicionar</button>
-                    <button class="btn-cancel">Cancelar</button>
+                <div class="show-form-todo none">
+                    <img class="icons" src="./assets/add_circle.svg">
+                    <div>Adicionar a tarefa</div>
                 </div>
 
-            </form>
+                <form class="form-add-todo none">
+
+                    <label for="title">Titúlo:</label>
+                    <input name="title" type="text" id="input-title" placeholder="O que fazer?">
+
+                    <label for="description">Descrição(opcional):</label>
+                    <input name="description" type="text" id="input-descri">
+
+                    <label for="date">Data:</label>
+                    <input name="date" type="date" id="input-date">
+
+                    <div class="box-btn-form">
+                        <button id="btn-confirm-addToDo" type="button" class="btn-confirm">Adicionar</button>
+                        <button id="btn-cancel-addToDo" type="button" class="btn-cancel">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
     </main>

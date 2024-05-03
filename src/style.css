@@ -241,3 +241,24 @@
     font-size: 1.1rem;
     padding: 5px;
 }
+
+.show-form-todo{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 100ms;
+}
+
+.show-form-todo img{
+    margin-right: 5px;
+}
+
+.show-form-todo:hover{
+    opacity: 0.8;
+}
+
+.container-form-add-todo{
+    display: flex;
+    flex-direction: column-reverse;
+}
