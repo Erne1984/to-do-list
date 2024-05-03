@@ -2,6 +2,7 @@ import createTodoCard from './createTodoCard';
 import { ToDo } from '../logic/todoObject';
 import getSelectedItem from './getSelectedItem';
 import projectsArray from './projectsArray'; 
+import { editDeleteTodo } from './editDeleteTodo';
 
 export function initTodoContent() {
     const todoCardDom = document.querySelector('.list-todo');
@@ -25,10 +26,10 @@ export function initTodoContent() {
     if (selectedProject && selectedProject.todos.length > 0) {
         selectedProject.todos.forEach(todo => {
             const todoCardHTML = createTodoCard(todo.title, todo.description, todo.dueDate);
+            editDeleteTodo()
             todoCardDom.innerHTML += todoCardHTML;
         });
         if (noTaskMsg) {
-            todoCardDom.removeChild(noTaskMsg);
             noTaskMsg = null; 
         }
     } else {

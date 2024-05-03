@@ -9,8 +9,8 @@ function createTodoCard(title, description, date) {
         </div>
         <div class="date">${date}</div>
         <div class="edit-delete-box">
-            <div id="edit"> </div>
-            <div id="delete"> </div>
+            <div class="edit"> </div>
+            <div class="delete"> </div>
         </div>
     </div>
     `

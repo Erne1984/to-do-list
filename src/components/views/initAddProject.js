@@ -1,5 +1,4 @@
 import Project from "../logic/projectObject";
-import ToDo from "../logic/todoObject";
 import projectItem from "./projectItem";
 import projectsArray from "./projectsArray";
 

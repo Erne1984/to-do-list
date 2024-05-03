@@ -158,12 +158,12 @@
     padding: 5px;
 }
 
-#delete:hover {
+.delete:hover {
     cursor: pointer;
     filter: brightness(0) saturate(100%) invert(36%) sepia(77%) saturate(6832%) hue-rotate(349deg) brightness(108%) contrast(103%);
 }
 
-#edit:hover {
+.edit:hover {
     cursor: pointer;
     filter: brightness(0) saturate(100%) invert(24%) sepia(85%) saturate(5247%) hue-rotate(232deg) brightness(96%) contrast(98%);
 }
@@ -213,13 +213,13 @@
 
 /* END FORM */
 
-#edit{
+.edit{
     background: url(./assets/edit.svg);
     height: 24px;
     width: 24px;
 }
 
-#delete{
+.delete{
     background: url(./assets/delete.svg);
     height: 24px;
     width: 24px;
