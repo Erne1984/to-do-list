@@ -14,7 +14,7 @@ export function initTodoContent() {
         const fazerLingues = new ToDo("Alemão", "Estudar no youtube", "21/07/2034");
         const fazerAcademia = new ToDo("Malhar os Glúteos", "Gaviões", "21/04/2024");
 
-        projectsArray[0].todos.push(fazerLingues);
+       // projectsArray[0].todos.push(fazerLingues);
         projectsArray[1].todos.push(fazerAcademia);
         projectsArray[2].todos.push(fazerProg);
     }

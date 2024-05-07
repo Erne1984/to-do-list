@@ -1,6 +1,12 @@
 import { projectsArray } from '../../index';
 import createTodoCard from "./createTodoCard";
+import getSelectedItem from './getSelectedItem';
 import { ToDo } from "../logic/todoObject";
+import { initTodoContent } from './todoContentDom';
+
+let showFormClickListener = null;
+let addFormClickListener = null;
+let cancelFormClickListener = null;
 
 export function formAddTodo() {
     const titleTodo = document.querySelector(".title-content");
@@ -8,7 +14,7 @@ export function formAddTodo() {
     const showForm = document.querySelector(".show-form-todo");
     const formAddTodo = document.querySelector(".form-add-todo");
     const inputTitle = document.querySelector("#input-title");
-    const inputDescription = document.querySelector("#input-description");
+    const inputDescription = document.querySelector("#input-descri");
     const inputDate = document.querySelector("#input-date");
     const addForm = document.querySelector("#btn-confirm-addToDo");
     const cancelForm = document.querySelector("#btn-cancel-addToDo");
@@ -26,20 +32,41 @@ export function formAddTodo() {
         showForm.classList.add("none");
     }
 
-    showForm.addEventListener("click", () => {
+    if (showFormClickListener) {
+        showForm.removeEventListener("click", showFormClickListener);
+    }
+    if (addFormClickListener) {
+        addForm.removeEventListener("click", addFormClickListener);
+    }
+    if (cancelFormClickListener) {
+        cancelForm.removeEventListener("click", cancelFormClickListener);
+    }
+
+    showFormClickListener = () => {
         if (isProjectFound) {
             formAddTodo.classList.remove("none");
         }
-    });
+    };
+    showForm.addEventListener("click", showFormClickListener);
 
-    addForm.addEventListener("click", () => {
+    addFormClickListener = () => {
         const newTodo = new ToDo(inputTitle.value, inputDescription.value, inputDate.value);
-        projectsArray.push(newTodo)
-        const todoCardHTML = createTodoCard(newTodo.title, newTodo.description, newTodo.dueDate);
-        todoCardDom.appendChild(todoCardHTML);
-    });
-
-    cancelForm.addEventListener("click", () => {
+        const selectedProjectName = getSelectedItem();
+        const selectedProject = projectsArray.find(project => project.nome === selectedProjectName);
+        selectedProject.todos.push(newTodo); 
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = createTodoCard(newTodo.title, newTodo.description, newTodo.dueDate);
+        todoCardDom.appendChild(tempDiv);
         formAddTodo.classList.add("none");
-    });
+        inputTitle.value = "";
+        inputDescription.value = "";
+        inputDate.value = "";
+        initTodoContent();
+    };
+    addForm.addEventListener("click", addFormClickListener);
+
+    cancelFormClickListener = () => {
+        formAddTodo.classList.add("none");
+    };
+    cancelForm.addEventListener("click", cancelFormClickListener);
 }
