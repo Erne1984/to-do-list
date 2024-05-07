@@ -1,4 +1,4 @@
-import projectsArray from "./projectsArray";
+import { projectsArray } from '../../index';
 import createTodoCard from "./createTodoCard";
 import { ToDo } from "../logic/todoObject";
 
@@ -14,7 +14,7 @@ export function formAddTodo() {
     const cancelForm = document.querySelector("#btn-cancel-addToDo");
 
     let isProjectFound = false;
-    projectsArray().forEach((project) => {
+    projectsArray.forEach((project) => {
         if (project.nome === titleTodo.textContent) {
             isProjectFound = true;
         }
@@ -34,7 +34,7 @@ export function formAddTodo() {
 
     addForm.addEventListener("click", () => {
         const newTodo = new ToDo(inputTitle.value, inputDescription.value, inputDate.value);
-        projectsArray().push(newTodo)
+        projectsArray.push(newTodo)
         const todoCardHTML = createTodoCard(newTodo.title, newTodo.description, newTodo.dueDate);
         todoCardDom.appendChild(todoCardHTML);
     });

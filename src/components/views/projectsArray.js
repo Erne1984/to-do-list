@@ -1,6 +1,6 @@
 import Project from "../logic/projectObject";
 
-export default function projectsArray() {
+function projectsArray() {
     return [
         new Project("Linguagens"),
         new Project("Academia"),
