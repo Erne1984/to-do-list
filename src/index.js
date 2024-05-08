@@ -3,7 +3,6 @@ import { initSidebar } from './components/views/initSidebar';
 import { initTodoContent } from './components/views/todoContentDom';
 import './style.css'
 import Project from './components/logic/projectObject';
-import { ToDo } from './components/logic/todoObject';
 
 const projectsArray = [
     new Project("Linguagens"),

@@ -21,6 +21,7 @@ export function initSidebar() {
                 currentItem = listItem.querySelector(".list-element");
                 titleTodo.textContent = sideBarItens[currentItem.textContent];
                 initTodoContent();
+                formAddTodo();
             }
         })
     });
