@@ -1,25 +1,45 @@
 import { projectsArray } from '../../index';
-import createTodoCard from "./createTodoCard";
 import getSelectedItem from './getSelectedItem';
-import { initTodoContent } from './todoContentDom';
 import { updateToDo } from '../logic/update';
-import { deleteToDo } from '../logic/app'
+import { deleteToDo } from '../logic/app';
 
 export function editDeleteTodo() {
     const todoCardDom = document.querySelector('.list-todo');
 
-    // Função para manipular o evento de edição
+    // Função para evento de edição
     function handleEdit(event) {
         const target = event.target;
 
         if (target.classList.contains('edit')) {
-
             const todoCard = target.closest('.todo-card');
-            const todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
+            let todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
             const selectedProjectName = getSelectedItem();
-            const selectedProjectIndex = projectsArray.findIndex(project => project.nome === selectedProjectName);
+            let selectedProjectIndex = "";
 
-            if (selectedProjectIndex !== -1) { 
+            if (selectedProjectName == "Geral" ||
+                selectedProjectName == "Hoje" ||
+                selectedProjectName == "Próxima Semana" ||
+                selectedProjectName == "Importante") {
+                const todoName = todoCard.querySelector('.todo-title');
+                let projectName = "";
+
+                projectsArray.forEach((project) => {
+                    project.todos.forEach((todo, index) => {
+                        if (todo.title === todoName.textContent) {
+                            todoIndex = index;
+                            projectName = project.nome;
+                        }
+                    });
+                });
+                selectedProjectIndex = projectsArray.findIndex(project => project.nome === projectName);
+            } else {
+                selectedProjectIndex = projectsArray.findIndex(project => project.nome === selectedProjectName);
+                todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
+            }
+
+            console.log("Teste1")
+
+            if (selectedProjectIndex !== -1) {
                 const selectedProject = projectsArray[selectedProjectIndex];
                 const todo = selectedProject.todos[todoIndex];
 
@@ -28,8 +48,6 @@ export function editDeleteTodo() {
                 const editedDescription = modal.querySelector('#description-edit');
                 const editedDate = modal.querySelector('#date-edit');
                 const editedImportant = modal.querySelector('#important');
-
-                console.log(projectsArray[selectedProjectIndex].todos[todoIndex]);
 
                 editedTitle.value = projectsArray[selectedProjectIndex].todos[todoIndex].title;
                 editedDescription.value = projectsArray[selectedProjectIndex].todos[todoIndex].description;
@@ -42,22 +60,20 @@ export function editDeleteTodo() {
                 const cancelEdit = document.querySelector("#cancel-edit");
 
                 btnEdit.addEventListener("click", () => {
+                    console.log("Teste2")
                     if (editedTitle.value == "" ||
                         editedDescription.value == "" ||
                         editedDate.value == "") {
-
                         alert("Preencha todos os campos!")
-                    }else{
+                    } else {
                         projectsArray[selectedProjectIndex].todos[todoIndex].title = editedTitle.value;
                         projectsArray[selectedProjectIndex].todos[todoIndex].description = editedDescription.value;
                         projectsArray[selectedProjectIndex].todos[todoIndex].dueDate = editedDate.value;
                         projectsArray[selectedProjectIndex].todos[todoIndex].priority = editedImportant.value;
 
-                        const todoCard = target.closest('.todo-card');
                         const todoCardTitle = todoCard.querySelector(".todo-title");
                         const todoCardDescription = todoCard.querySelector(".todo-description");
                         const todoCardDate = todoCard.querySelector(".date");
-                        //const todoCardPriority = todoCard.querySelector(".checkbox-round");
 
                         todoCardTitle.textContent = editedTitle.value;
                         todoCardDescription.textContent = editedDescription.value;
@@ -70,40 +86,40 @@ export function editDeleteTodo() {
                 cancelEdit.addEventListener("click", () => {
                     modal.close();
                 })
-
-                console.log('Editar todo:', todo);
             } else {
                 console.log("Projeto não encontrado!");
             }
         }
     }
 
-    // Função para manipular o evento de exclusão
+    // Função para evento de exclusão
     function handleDelete(event) {
         const target = event.target;
 
         if (target.classList.contains('delete')) {
-
             const todoCard = target.closest('.todo-card');
-
             const todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
-
             const selectedProjectName = getSelectedItem();
             const selectedProject = projectsArray.find(project => project.nome === selectedProjectName);
 
-            const todo = selectedProject.todos[todoIndex];
-
-            selectedProject.todos.splice(todoIndex, 1);
-
-            todoCard.remove();
-
-            console.log('Excluir todo:', todo);
+            if (selectedProject) {
+                selectedProject.todos.splice(todoIndex, 1);
+                todoCard.remove();
+            } else {
+                console.log("Projeto não encontrado!");
+            }
         }
     }
 
-    todoCardDom.removeEventListener('click', handleEdit);
-    todoCardDom.removeEventListener('click', handleDelete);
+    // Remover os event listeners anteriores
+    // Adicionar event listener usando event delegation
+    todoCardDom.addEventListener('click', (event) => {
+        const target = event.target;
 
-    todoCardDom.addEventListener('click', handleEdit);
-    todoCardDom.addEventListener('click', handleDelete);
+        if (target.classList.contains('edit')) {
+            handleEdit(event);
+        } else if (target.classList.contains('delete')) {
+            handleDelete(event);
+        }
+    });
 }

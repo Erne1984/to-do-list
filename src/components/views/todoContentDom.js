@@ -2,7 +2,6 @@ import createTodoCard from './createTodoCard';
 import { ToDo } from '../logic/todoObject';
 import getSelectedItem from './getSelectedItem';
 import { projectsArray } from '../../index';
-import { editDeleteTodo } from './editDeleteTodo';
 
 function displayNoTasksMessage() {
     let noTaskMsg = document.querySelector('.no-task');
@@ -101,5 +100,5 @@ export function initTodoContent() {
         }
     }
 
-    editDeleteTodo();
+    
 }
