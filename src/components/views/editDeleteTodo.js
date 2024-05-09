@@ -98,16 +98,40 @@ export function editDeleteTodo() {
 
         if (target.classList.contains('delete')) {
             const todoCard = target.closest('.todo-card');
-            const todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
+            let todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
             const selectedProjectName = getSelectedItem();
-            const selectedProject = projectsArray.find(project => project.nome === selectedProjectName);
+            let selectedProject = projectsArray.find(project => project.nome === selectedProjectName);
+            let selectedProjectIndex = "";
 
-            if (selectedProject) {
-                selectedProject.todos.splice(todoIndex, 1);
+
+            if (selectedProjectName == "Geral" ||
+                selectedProjectName == "Hoje" ||
+                selectedProjectName == "Próxima Semana" ||
+                selectedProjectName == "Importante") {
+                const todoName = todoCard.querySelector('.todo-title');
+                let projectName = "";
+
+                projectsArray.forEach((project) => {
+                    project.todos.forEach((todo, index) => {
+                        if (todo.title === todoName.textContent) {
+                            todoIndex = index;
+                            projectName = project.nome;
+                        }
+                    });
+                });
+                selectedProjectIndex = projectsArray.findIndex(project => project.nome === projectName);
+            } else {
+                selectedProjectIndex = projectsArray.findIndex(project => project.nome === selectedProjectName);
+                todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
+            }
+
+            if (selectedProjectIndex !== -1) {
+                projectsArray[selectedProjectIndex].todos.splice(todoIndex, 1);
                 todoCard.remove();
             } else {
                 console.log("Projeto não encontrado!");
             }
+
         }
     }
 
