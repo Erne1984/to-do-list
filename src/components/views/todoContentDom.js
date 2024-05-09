@@ -20,15 +20,6 @@ export function initTodoContent() {
 
     const selectedProjectName = getSelectedItem();
 
-    if (projectsArray.every(project => project.todos.length === 0)) {
-        const fazerProg = new ToDo("Programação", "estudos", "09/05/2024");
-        const fazerLingues = new ToDo("Alemão", "Estudar no youtube", "16/05/2024");
-        const fazerAcademia = new ToDo("Malhar os Glúteos", "Gaviões", "21/04/2024");
-
-        projectsArray[0].todos.push(fazerLingues);
-        projectsArray[1].todos.push(fazerAcademia);
-        projectsArray[2].todos.push(fazerProg);
-    }
 
     if(selectedProjectName === "Geral"){
         projectsArray.forEach(project => {

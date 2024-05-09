@@ -1,6 +1,7 @@
 import Project from "../logic/projectObject";
 import projectItem from "./projectItem";
 import { projectsArray } from '../../index';
+import saveProjectsArrayToLocalStorage from "./saveToLocalStorage";
 
 export function initAddProject() {
     const projectContainer = document.querySelector(".projects");
@@ -35,6 +36,9 @@ export function initAddProject() {
             projectsArray.push(newProject); 
             console.log("Novo projeto adicionado:", newProject); 
             console.log("Array de projetos atualizado:", projectsArray);  
+
+            saveProjectsArrayToLocalStorage();
+
             const projectHTML = projectItem(inputNameProject.value);
             projectContainer.appendChild(projectHTML);
             const addProjectForm = document.querySelector(".add-project-box");

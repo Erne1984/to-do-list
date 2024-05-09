@@ -1,7 +1,6 @@
 import { projectsArray } from '../../index';
 import getSelectedItem from './getSelectedItem';
-import { updateToDo } from '../logic/update';
-import { deleteToDo } from '../logic/app';
+import saveProjectsArrayToLocalStorage from './saveToLocalStorage';
 
 export function editDeleteTodo() {
     const todoCardDom = document.querySelector('.list-todo');
@@ -59,33 +58,35 @@ export function editDeleteTodo() {
                 const btnEdit = document.querySelector("#submit-edit");
                 const cancelEdit = document.querySelector("#cancel-edit");
 
-                btnEdit.addEventListener("click", () => {
+                function handleEditButtonClick() {
                     console.log("Teste2")
-                    if (editedTitle.value == "" ||
-                        editedDescription.value == "" ||
-                        editedDate.value == "") {
-                        alert("Preencha todos os campos!")
-                    } else {
-                        projectsArray[selectedProjectIndex].todos[todoIndex].title = editedTitle.value;
-                        projectsArray[selectedProjectIndex].todos[todoIndex].description = editedDescription.value;
-                        projectsArray[selectedProjectIndex].todos[todoIndex].dueDate = editedDate.value;
-                        projectsArray[selectedProjectIndex].todos[todoIndex].priority = editedImportant.value;
+                    projectsArray[selectedProjectIndex].todos[todoIndex].title = editedTitle.value;
+                    projectsArray[selectedProjectIndex].todos[todoIndex].description = editedDescription.value;
+                    projectsArray[selectedProjectIndex].todos[todoIndex].dueDate = editedDate.value;
+                    projectsArray[selectedProjectIndex].todos[todoIndex].priority = editedImportant.value;
 
-                        const todoCardTitle = todoCard.querySelector(".todo-title");
-                        const todoCardDescription = todoCard.querySelector(".todo-description");
-                        const todoCardDate = todoCard.querySelector(".date");
+                    const todoCardTitle = todoCard.querySelector(".todo-title");
+                    const todoCardDescription = todoCard.querySelector(".todo-description");
+                    const todoCardDate = todoCard.querySelector(".date");
 
-                        todoCardTitle.textContent = editedTitle.value;
-                        todoCardDescription.textContent = editedDescription.value;
-                        todoCardDate.textContent = editedDate.value;
+                    todoCardTitle.textContent = editedTitle.value;
+                    todoCardDescription.textContent = editedDescription.value;
+                    todoCardDate.textContent = editedDate.value;
 
-                        modal.close()
-                    }
-                })
+                    modal.close()
+                    saveProjectsArrayToLocalStorage();
+
+
+                }
+
+                btnEdit.removeEventListener("click", handleEditButtonClick);
+
+                btnEdit.addEventListener("click", handleEditButtonClick);
 
                 cancelEdit.addEventListener("click", () => {
                     modal.close();
-                })
+                });
+
             } else {
                 console.log("Projeto não encontrado!");
             }
@@ -100,7 +101,6 @@ export function editDeleteTodo() {
             const todoCard = target.closest('.todo-card');
             let todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
             const selectedProjectName = getSelectedItem();
-            let selectedProject = projectsArray.find(project => project.nome === selectedProjectName);
             let selectedProjectIndex = "";
 
 
@@ -128,6 +128,7 @@ export function editDeleteTodo() {
             if (selectedProjectIndex !== -1) {
                 projectsArray[selectedProjectIndex].todos.splice(todoIndex, 1);
                 todoCard.remove();
+                saveProjectsArrayToLocalStorage();
             } else {
                 console.log("Projeto não encontrado!");
             }

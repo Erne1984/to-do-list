@@ -3,6 +3,7 @@ import createTodoCard from "./createTodoCard";
 import getSelectedItem from './getSelectedItem';
 import { ToDo } from "../logic/todoObject";
 import { initTodoContent } from './todoContentDom';
+import saveProjectsArrayToLocalStorage from './saveToLocalStorage';
 
 let showFormClickListener = null;
 let addFormClickListener = null;
@@ -62,6 +63,7 @@ export function formAddTodo() {
         inputDescription.value = "";
         inputDate.value = "";
         initTodoContent();
+        saveProjectsArrayToLocalStorage();
     };
     addForm.addEventListener("click", addFormClickListener);
 
