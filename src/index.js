@@ -1,7 +1,8 @@
 import { initAddProject } from './components/views/initAddProject';
 import { initSidebar } from './components/views/initSidebar';  
 import { initTodoContent } from './components/views/todoContentDom';
-import { editDeleteTodo } from './components/views/editDeleteTodo';
+import { editTodo } from './components/views/editTodo';
+import { deleteTodo } from './components/views/deleteTodo';
 import './style.css'
 import Project from './components/logic/projectObject';
 
@@ -27,4 +28,6 @@ initSidebar();
 initAddProject();
 
 initTodoContent();
-editDeleteTodo();
+
+editTodo();
+deleteTodo();

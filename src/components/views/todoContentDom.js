@@ -1,5 +1,4 @@
 import createTodoCard from './createTodoCard';
-import { ToDo } from '../logic/todoObject';
 import getSelectedItem from './getSelectedItem';
 import { projectsArray } from '../../index';
 

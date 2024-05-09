@@ -333,6 +333,8 @@ dialog h2 {
 .btn-form button {
     padding: 10px;
     background-color: var(--aprove-color);
+    color: var(--white-font);
+    font-weight: bold;
     border: none;
     border-radius: 3px;
     cursor: pointer;
