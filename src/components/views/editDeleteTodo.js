@@ -16,6 +16,7 @@ export function editDeleteTodo() {
             // Lógica para editar
 
             const todoCard = target.closest('.todo-card');
+            const modal = document.querySelector("dialog");
             const todoIndex = Array.from(todoCardDom.children).indexOf(todoCard);
             const selectedProjectName = getSelectedItem();
             const selectedProject = projectsArray.find(project => project.nome === selectedProjectName);
@@ -23,6 +24,9 @@ export function editDeleteTodo() {
             
             // Implementar a lógica de edição aqui, talvez exibindo um formulário de edição com os detalhes atuais do todo preenchidos
             // Você pode usar as funções de atualização existentes ou implementar uma nova função para atualizar o todo
+
+            console.log(modal)
+            modal.showModal();
 
             console.log('Editar todo:', todo);
         } else if (target.classList.contains('delete')) {
