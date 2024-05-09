@@ -4,11 +4,11 @@ export default function(){
 
     const selectedHomeItem = Array.from(itensHome).find(itemHome => itemHome.classList.contains("select"));
     if (selectedHomeItem) {
-        return selectedHomeItem.textContent;
+        return selectedHomeItem.textContent.trim();
     }
 
     const selectedProjectItem = Array.from(itensProjects).find(itemProject => itemProject.classList.contains("select"));
     if (selectedProjectItem) {
-        return selectedProjectItem.textContent;
+        return selectedProjectItem.textContent.trim();
     }
 }
