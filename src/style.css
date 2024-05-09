@@ -332,8 +332,12 @@ dialog h2 {
 
 .btn-form button {
     padding: 10px;
-    background-color: #9c66ef;
+    background-color: var(--aprove-color);
     border: none;
     border-radius: 3px;
     cursor: pointer;
+}
+
+#cancel-edit{
+    background-color: var(--cancel-color);
 }
