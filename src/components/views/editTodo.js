@@ -40,7 +40,7 @@ export function editTodo() {
                 const selectedProject = projectsArray[selectedProjectIndex];
                 const todo = selectedProject.todos[todoIndex];
 
-                const modal = document.querySelector("dialog");
+                const modal = document.querySelector("#edit-todo");
                 const editedTitle = modal.querySelector('#title');
                 const editedDescription = modal.querySelector('#description-edit');
                 const editedDate = modal.querySelector('#date-edit');

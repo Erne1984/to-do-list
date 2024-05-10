@@ -15,9 +15,12 @@ export function editProject(){
         const target = e.target;
 
         const projectItem = target.closest(".project");
-        const projectName = projectItem.querySelector(".list-element").textContent;
-        const currentIndexProject = projectsArray.findIndex((project) => project.nome == projectName);
+        const projectName = projectItem.querySelector(".list-element");
+        const inputNewTitle = document.querySelector("#new-project-name");
+        const currentIndexProject = projectsArray.findIndex((project) => project.nome == projectName.textContent);
         indexProject = currentIndexProject;
+
+        inputNewTitle.value = projectsArray[indexProject].nome;
 
         const modal = document.querySelector("#edit-project-dialog");
         const cancelModalBtn = document.querySelector("#btn-cancel-edit-project");
@@ -26,8 +29,10 @@ export function editProject(){
         cancelModalBtn.removeEventListener("click", handleBtnCancelEditProject);
         cancelModalBtn.addEventListener("click", handleBtnCancelEditProject);
 
-        confirmModalBtn.removeEventListener("click", handleBtnEditProject);
-        confirmModalBtn.addEventListener("click", handleBtnEditProject);
+        const functionHandleBtnEditProject = handleBtnEditProject(projectName, inputNewTitle);
+
+        confirmModalBtn.removeEventListener("click", functionHandleBtnEditProject);
+        confirmModalBtn.addEventListener("click",  functionHandleBtnEditProject); 
 
         modal.show();
     }
@@ -38,23 +43,21 @@ export function editProject(){
         modal.close();
     }
 
-    function handleBtnEditProject(e){
-        const target = e.target;
+    function handleBtnEditProject(projectName ,inputNewTitle){  
+        return function(e){ 
+            const target = e.target;
 
-        const modal = target.closest("#edit-project-dialog");
-        const inputNewTitle = document.querySelector("#new-project-name");
+            const modal = target.closest("#edit-project-dialog");
 
-        console.log(projectsArray[indexProject].nome);
+            projectsArray[indexProject].nome = inputNewTitle.value;
 
-        console.log(inputNewTitle)
+            projectName.textContent = inputNewTitle.value;
 
-        inputNewTitle.value = projectsArray[indexProject].nome;
+            modal.close();
 
-        //projectsArray[indexProject].nome = inputNewTitle.value;
-
-        //modal.close();
-
-        //saveProjectsArrayToLocalStorage();
+            saveProjectsArrayToLocalStorage();
+            location.reload()
+        }
     }
 
 }
