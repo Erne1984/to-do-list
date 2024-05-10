@@ -236,6 +236,25 @@
     color: #14222e;
 }
 
+.box-list-item-boxIcons{
+    justify-content: space-between;
+}
+
+.edit-icon-project, .delete-icon-project{
+    font-size: 1.1rem;
+    margin: 0 2px;
+}
+
+.edit-icon-project:hover{
+    cursor: pointer;
+    color: #284AF2;
+}
+
+.delete-icon-project:hover{
+    cursor: pointer;
+    color: var(--cancel-color);
+}
+
 .project-list{
     padding: 5px;
     font-size: 1.1rem;

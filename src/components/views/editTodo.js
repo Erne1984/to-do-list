@@ -81,7 +81,6 @@ export function editTodo() {
 
 function handleEditButtonClick(todoCard, selectedProjectIndex, todoIndex, modal, editedTitle, editedDescription, editedDate, editedImportant) {
     if (editedTitle.value == "" ||
-        editedDescription.value == "" ||
         editedDate.value == "") {
         alert("Preencha todos os campos!");
     } else {

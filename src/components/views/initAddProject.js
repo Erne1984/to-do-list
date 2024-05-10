@@ -34,8 +34,6 @@ export function initAddProject() {
         } else {
             const newProject = new Project(inputNameProject.value);
             projectsArray.push(newProject); 
-            console.log("Novo projeto adicionado:", newProject); 
-            console.log("Array de projetos atualizado:", projectsArray);  
 
             saveProjectsArrayToLocalStorage();
 
