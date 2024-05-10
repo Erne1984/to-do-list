@@ -20,7 +20,7 @@ export function initTodoContent() {
     const selectedProjectName = getSelectedItem();
 
 
-    if(selectedProjectName === "Geral"){
+    if (selectedProjectName === "Geral") {
         projectsArray.forEach(project => {
             project.todos.forEach(todo => {
                 const todoCardHTML = createTodoCard(todo.title, todo.description, todo.dueDate);
@@ -32,11 +32,16 @@ export function initTodoContent() {
         }
     }
 
-    if(selectedProjectName === "Hoje"){
-        const today = new Date().toLocaleDateString();
+    if (selectedProjectName === "Hoje") {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+
         projectsArray.forEach(project => {
             project.todos.forEach(todo => {
-                if (todo.dueDate === today) {
+                if (todo.dueDate === formattedDate) {
                     const todoCardHTML = createTodoCard(todo.title, todo.description, todo.dueDate);
                     todoCardDom.innerHTML += todoCardHTML;
                 }
@@ -47,24 +52,28 @@ export function initTodoContent() {
         }
     }
 
-    if(selectedProjectName === "Próxima Semana"){
+    if (selectedProjectName === "Próxima Semana") {
         const today = new Date();
         const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+
         projectsArray.forEach(project => {
             project.todos.forEach(todo => {
                 const todoDate = new Date(todo.dueDate);
-                if (todoDate > today && todoDate <= nextWeek) {
+                const oneDay = 24 * 60 * 60 * 1000; // Quantidade de milissegundos em um dia
+                const daysUntilDue = Math.round((todoDate - today) / oneDay); // Calcula os dias até a data do todo
+                if (daysUntilDue > 0 && daysUntilDue <= 7) { // Verifica se a data do todo está dentro dos próximos sete dias
                     const todoCardHTML = createTodoCard(todo.title, todo.description, todo.dueDate);
                     todoCardDom.innerHTML += todoCardHTML;
                 }
             });
         });
+
         if (todoCardDom.innerHTML === '') {
             displayNoTasksMessage();
         }
     }
-    
-    if(selectedProjectName === "Importante"){
+
+    if (selectedProjectName === "Importante") {
         projectsArray.forEach(project => {
             project.todos.forEach(todo => {
                 if (todo.priority) {
@@ -90,5 +99,5 @@ export function initTodoContent() {
         }
     }
 
-    
+
 }

@@ -1,7 +1,7 @@
 function createTodoCard(title, description, date) {
     return `
     <div class="todo-card">
-        <input type="checkbox" class="checkbox-round">
+        <!--input type="checkbox" class="checkbox-round"-->
     
         <div class="todo-details">
             <div class="todo-title">${title}</div>

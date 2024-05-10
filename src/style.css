@@ -24,7 +24,7 @@
 
 }
 
-.none{
+.none {
     display: none !important;
 }
 
@@ -47,7 +47,7 @@
     cursor: pointer;
 }
 
-.box-list-item:hover{
+.box-list-item:hover {
     font-weight: bold;
     color: #14222e;
 }
@@ -71,7 +71,7 @@
     color: #14222e;
 }
 
-.projects{
+.projects {
     display: flex;
     flex-direction: column;
 }
@@ -84,7 +84,7 @@
     cursor: pointer;
 }
 
-.add-project-box{
+.add-project-box {
     display: flex;
 }
 
@@ -121,7 +121,7 @@
     cursor: pointer;
 }
 
-.todo-card:hover{
+.todo-card:hover {
     border: 1px solid black;
 }
 
@@ -172,24 +172,24 @@
 
 /* START FORM */
 
-.form-add-todo{
+.form-add-todo {
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
 }
 
-.form-add-todo input{
+.form-add-todo input {
     margin: 5px 0;
     padding: 5px;
 }
 
-.box-btn-form{
+.box-btn-form {
     display: flex;
     justify-content: center;
     margin-top: 3px;
 }
 
-.box-btn-form button{
+.box-btn-form button {
     color: var(--white-font);
     border: none;
     padding: 5px;
@@ -199,69 +199,70 @@
     border-radius: 5px;
 }
 
-.box-btn-form button:hover{
+.box-btn-form button:hover {
     opacity: 0.8;
 }
 
-.btn-confirm{
+.btn-confirm {
     background-color: var(--aprove-color);
 }
 
-.btn-cancel{
+.btn-cancel {
     background-color: var(--cancel-color);
 }
 
 /* END FORM */
 
-.edit{
+.edit {
     background: url(./assets/edit.svg);
     height: 24px;
     width: 24px;
 }
 
-.delete{
+.delete {
     background: url(./assets/delete.svg);
     height: 24px;
     width: 24px;
 }
 
-.box-list-item-project{
+.box-list-item-project {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.box-list-item-project:hover{
+.box-list-item-project:hover {
     font-weight: bold;
     color: #14222e;
 }
 
-.box-list-item-boxIcons{
+.box-list-item-boxIcons {
     justify-content: space-between;
 }
 
-.edit-icon-project, .delete-icon-project{
+.edit-icon-project,
+.delete-icon-project {
     font-size: 1.1rem;
     margin: 0 2px;
 }
 
-.edit-icon-project:hover{
+.edit-icon-project:hover {
     cursor: pointer;
     color: #284AF2;
 }
 
-.delete-icon-project:hover{
+.delete-icon-project:hover {
     cursor: pointer;
     color: var(--cancel-color);
 }
 
-.project-list{
+.project-list {
     padding: 5px;
     font-size: 1.1rem;
     padding: 5px;
 }
 
-.show-form-todo{
+.show-form-todo {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -269,15 +270,15 @@
     transition: 100ms;
 }
 
-.show-form-todo img{
+.show-form-todo img {
     margin-right: 5px;
 }
 
-.show-form-todo:hover{
+.show-form-todo:hover {
     opacity: 0.8;
 }
 
-.container-form-add-todo{
+.container-form-add-todo {
     display: flex;
     flex-direction: column-reverse;
 }
@@ -361,10 +362,17 @@ dialog h2 {
     cursor: pointer;
 }
 
-#cancel-edit{
+#cancel-edit {
     background-color: var(--cancel-color);
 }
 
-#btn-cancel-edit-project{
+#btn-cancel-edit-project {
     background-color: var(--cancel-color);
+}
+
+
+@media screen and (max-width: 875px) {
+    .main-content {
+        flex-direction: column;
+    }
 }
