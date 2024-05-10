@@ -362,3 +362,7 @@ dialog h2 {
 #cancel-edit{
     background-color: var(--cancel-color);
 }
+
+#btn-cancel-edit-project{
+    background-color: var(--cancel-color);
+}

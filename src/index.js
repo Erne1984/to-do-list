@@ -4,7 +4,8 @@ import { initTodoContent } from './components/views/todoContentDom';
 import { editTodo } from './components/views/editTodo';
 import { deleteTodo } from './components/views/deleteTodo';
 import { deleteProject } from './components/views/deleteProject';
-import './style.css'
+import { editProject } from './components/views/editProject';
+import './style.css';
 
 const projectsArray = [];
 
@@ -29,3 +30,4 @@ editTodo();
 deleteTodo();
 
 deleteProject();
+editProject();

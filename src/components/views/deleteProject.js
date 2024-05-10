@@ -22,7 +22,6 @@ export function deleteProject() {
         projectsArray.splice(indexProject, 1);
         projectElement.remove();
 
-        saveProjectsArrayToLocalStorage();
-        
+        saveProjectsArrayToLocalStorage();      
     }
 }
